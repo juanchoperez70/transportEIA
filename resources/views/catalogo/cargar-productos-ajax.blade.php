@@ -1,0 +1,1 @@
+<?php echo Form::select('producto', $productos, null, array('class' => 'form-control', 'style' => 'width: 300px;')); ?>
