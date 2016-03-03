@@ -15,20 +15,20 @@ class Usuario extends Model implements AuthenticatableContract, CanResetPassword
 	 *
 	 * @var string
 	 */
-	protected $table = 'usuario';
+	protected $table = 'usuarios';
 
 	/**
 	 * The attributes that are mass assignable.
 	 *
 	 * @var array
 	 */
-	protected $fillable = ['nombre', 'correo', 'contrasena'];
+	protected $fillable = ['nombre', 'email', 'password'];
 
 	/**
 	 * The attributes excluded from the model's JSON form.
 	 *
 	 * @var array
 	 */
-	protected $hidden = ['contrasena', 'remember_token'];
+	protected $hidden = ['password', 'remember_token'];
 
 }

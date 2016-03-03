@@ -21,6 +21,4 @@ interface IProductoDao {
     public function obtenerCategorias();
 
     public function obtenerCategoriasSelect();
-    
-    public function listarPorCategoriaIdSelect($catId);
 }

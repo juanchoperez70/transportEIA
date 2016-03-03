@@ -12,7 +12,7 @@ class DatabaseSeeder extends Seeder {
      */
     public function run() {
 
-        DB::table('usuario')->delete();
+        DB::table('usuarios')->delete();
         Usuario::create(array('nombre' => 'Andrés',
             'email' => 'aguzman@bolsadeideas.com',
             'password' => Hash::make('12345'),));

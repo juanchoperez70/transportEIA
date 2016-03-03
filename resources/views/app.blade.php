@@ -36,7 +36,6 @@
                         <li><a href="<?php echo url('/') ?>">Home</a></li>
                         <li><a href="<?php echo url('/contacto') ?>">Contacto</a></li>
                         <li><a href="<?php echo url('/catalogo') ?>">Catalogo</a></li>
-                        <li><a href="<?php echo url('catalogo/cargar-productos') ?>">Ejemplo Ajax</a></li>
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">
@@ -62,7 +61,5 @@
         <!-- Scripts -->
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
-        @yield('stylesheet')
-        @yield('javascript')
     </body>
 </html>

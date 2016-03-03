@@ -15,7 +15,7 @@ class CatalogoController extends Controller {
     function __construct(ProductoDao $dao, Session $session) {
         $this->produtoDao = $dao;
         $this->session = $session;
-
+        
         $this->middleware('auth', ['except' => 'getIndex']);
     }
 
@@ -74,26 +74,6 @@ class CatalogoController extends Controller {
         $this->session->flash('alert-class', 'alert-success');
 
         return redirect('catalogo/index');
-    }
-
-    public function getCargarProductos() {
-        return view('catalogo.cargar-productos')
-                        ->with('categorias', $this->produtoDao->obtenerCategoriasSelect())
-                        ->with('titulo', 'Cargar Productos usando Ajax jQuery');
-    }
-
-    public function postCargarProductosAjax(Request $request, $format = "html") {
-        if ($request->ajax()) {
-            $catId = (int) $request->input("catId", 0);
-            $data = $this->produtoDao->listarPorCategoriaIdSelect($catId);
-
-            if ($format === 'html') {
-                return view('catalogo.cargar-productos-ajax')->with('productos', $data);
-            } else if ($format === 'json') {
-                return response()->json($data);
-            }
-        }
-        return response('Unauthorized.', 401);
     }
 
 }

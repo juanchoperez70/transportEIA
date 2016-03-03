@@ -37,17 +37,17 @@ class ProductoDao implements IProductoDao {
             $producto = new Producto($data);
         }
 
-        $categoria = $this->obtenerCategoriaPorId((int) $data['categoria_id']);
+        $categoria = $this->obtenerCategoriaPorId((int)$data['categoria_id']);
 
         $producto->categoria()->associate($categoria);
 
         $producto->save();
     }
 
-    public function obtenerCategorias() {
+        public function obtenerCategorias() {
         return Categoria::all();
     }
-
+    
     public function obtenerCategoriaPorId($id) {
         return Categoria::find($id);
     }
@@ -59,16 +59,6 @@ class ProductoDao implements IProductoDao {
             $select[$categoria->id] = $categoria->nombre;
         }
         return $select;
-    }
-
-    public function listarPorCategoriaIdSelect($catId) {
-        $productos = Producto::where(array('categoria_id' => $catId))->get();
-
-        $result = array();
-        foreach ($productos as $prod) {
-            $result[$prod->id] = $prod->nombre;
-        }
-        return $result;
     }
 
 }
