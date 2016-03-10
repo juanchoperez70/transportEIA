@@ -22,4 +22,5 @@ Route::controllers([
     'password' => 'Auth\PasswordController',
     'contacto' => 'ContactoController',
     'catalogo' => 'CatalogoController',
+    'verRutas' => 'VerRutasController',
 ]);

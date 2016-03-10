@@ -12,10 +12,19 @@ class DatabaseSeeder extends Seeder {
      */
     public function run() {
 
+        //'nombre', 'apellido', 'celular', 'correo', 'usuario', 'contrasena', 'comentario'
+
         DB::table('usuarios')->delete();
-        Usuario::create(array('nombre' => 'Esteban',
-            'email' => 'esteban@saion.com',
-            'password' => Hash::make('12345'),));
+        Usuario::create(
+            array(
+                'nombre' => 'Esteban',
+                'apellido' => 'Hernandez',
+                'celuar' => '3119988770',
+                'email' => 'esteban@saion.com',
+                'usuario' => 'esteban', 
+                'password' => Hash::make('12345'),
+                'comentario'=> 'puntual')
+        );
     }
 
 }
