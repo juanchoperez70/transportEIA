@@ -6039,6 +6039,12 @@ button.close {
 .visible-lg-inline-block {
   display: none !important;
 }
+#googleMap {
+  margin-left: 15%;
+  width: 1000px;
+  height: 500px;
+
+}
 @media (max-width: 767px) {
   .visible-xs {
     display: block !important;
