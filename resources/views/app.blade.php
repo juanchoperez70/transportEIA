@@ -35,7 +35,8 @@
                     <ul class="nav navbar-nav">
                         <li><a href="<?php echo url('/') ?>">Home</a></li>
                         <li><a href="<?php echo url('/contacto') ?>">Contacto</a></li>
-                        <li><a href="<?php echo url('/verRutas') ?>">Ver Ruta</a></li>
+                        <li><a href="<?php echo url('/verRutas') ?>">Ver Rutas</a></li>
+                        <li><a href="<?php echo url('/insertarRuta') ?>">Crear Rutas</a></li>
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">

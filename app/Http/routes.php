@@ -17,12 +17,15 @@ Route::get('home', 'HomeController@index');
 
 Route::get('verRutas', 'VerRutasController@index');
 
+Route::get('insertarRuta', 'InsertarRutaController@index');
+
 Route::controllers([
     'auth' => 'Auth\AuthController',
     'password' => 'Auth\PasswordController',
     'contacto' => 'ContactoController',
     'catalogo' => 'CatalogoController',
     'verRutas' => 'VerRutasController',
+    'insertarRuta' => 'InsertarRutaController',
     'registro' => 'RegistroUsuarioController',
     'listado'  => 'ListadoController',
 ]);

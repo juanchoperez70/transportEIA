@@ -130,6 +130,10 @@ return [
         'App\Providers\EventServiceProvider',
         'App\Providers\RouteServiceProvider',
         'App\Providers\DaoServiceProvider',
+        /*
+         * Google maps
+         */
+        'GeneaLabs\Phpgmaps\PhpgmapsServiceProvider',
     ],
     /*
       |--------------------------------------------------------------------------
@@ -177,5 +181,6 @@ return [
         'View' => 'Illuminate\Support\Facades\View',
         'Form' => 'Illuminate\Html\FormFacade',
         'HTML' => 'Illuminate\Html\HtmlFacade',
+        'Gmaps' => 'GeneaLabs\Phpgmaps\Facades\PhpgmapsFacade',
     ],
 ];

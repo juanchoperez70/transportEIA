@@ -30,7 +30,44 @@ class VerRutasController extends Controller {
 	 */
 	public function index()
 	{
-		return view('verRutas');
+		//configuaración
+        $config = array();
+        $lat = '6.146608428948201';
+        $lng = '-75.38988143205643';
+        $config['center'] = $lat.','.$lng;
+        $config['map_width'] = 400;
+        $config['map_height'] = 400;
+        $config['zoom'] = 10;
+ 
+        \Gmaps::initialize($config);
+
+        //Punto de inicio
+        $marker = array();
+        $lat = '6.146608428948201';
+        $lng = '-75.38988143205643';
+		$marker['position'] = $lat.','.$lng;
+		$marker['infowindow_content'] = 'Inicio!';
+		$marker['icon'] = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=A|9999FF|000000';
+		\Gmaps::add_marker($marker);
+
+		//punto final
+        $marker = array();
+        $lat = '6.156896803142564';
+        $lng = '-75.51740169525146';
+		$marker['position'] = $lat.','.$lng;
+		$marker['infowindow_content'] = 'Fin!';
+		\Gmaps::add_marker($marker);
+		$map = \Gmaps::create_map();
+ 
+        // Colocar el marcador 
+        // Una vez se conozca la posición del usuario
+        /*$marker = array();
+        \Gmaps::add_marker($marker);
+
+        $map = \Gmaps::create_map();*/
+ 
+        //Devolver vista con datos del mapa
+        return view('VerRutas', compact('map'));
 	}
 
 }

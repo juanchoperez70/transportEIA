@@ -1,7 +1,7 @@
 @extends('app')
 
 @section('content')
-<html>
+<!-- <html>
     <head>
         <script src="http://maps.googleapis.com/maps/api/js"></script>
         <script>
@@ -21,5 +21,14 @@
         <div id="googleMap"></div>
     </body>
 
+</html> -->
+<head>
+    <script type="text/javascript">var centreGot = false;</script>{!!$map['js']!!}
+</head>
+<body>
+    <div id="googleMap">
+        {!!$map['html']!!}
+    </div>
+</body>
 </html>
 @endsection
