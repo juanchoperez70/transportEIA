@@ -19,6 +19,8 @@ Route::get('verRutas', 'VerRutasController@index');
 
 Route::get('insertarRuta', 'InsertarRutaController@index');
 
+Route::post('insertarRuta', 'InsertarRutaController@postGuardar');
+
 Route::controllers([
     'auth' => 'Auth\AuthController',
     'password' => 'Auth\PasswordController',
@@ -34,5 +36,6 @@ Route::get('usuario','UsuarioController@index');
 Route::get('usuario/listado','UsuarioController@listar');
 Route::get('usuario/crear',['middleware'=>'auth', 'uses'=>'UsuarioController@crear']);
 Route::post('usuario/crear',['middleware'=>'auth', 'uses'=>'UsuarioController@guardar']);
+//Route::post('insertarRuta',['middleware'=>'auth', 'uses'=>'InsertarRutaController@postGuardar']);
 Route::get('usuario/ver/{id}',['middleware'=>'auth', 'uses'=>'UsuarioController@ver']);
 Route::get('usuario/eliminar/{id}',['middleware'=>'auth', 'uses'=>'UsuarioController@eliminar']);

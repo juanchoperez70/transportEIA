@@ -22,6 +22,8 @@ class CreateRutasTable extends Migration {
 			$table->double('lng_destino');
 			$table->datetime('fecha_inicio');
 			$table->datetime('fecha_destino');
+			$table->datetime('updated_at');
+			$table->datetime('created_at');
 			$table->string('descripcion');
 		});
 	}

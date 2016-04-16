@@ -6,7 +6,7 @@ use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 
 class Ruta extends Model implements AuthenticatableContract {
 
-	use Authenticatable, CanResetPassword;
+	use Authenticatable;
 
 	/**
 	 * The database table used by the model.

@@ -29,6 +29,9 @@
     <div id="googleMap">
         {!!$map['html']!!}
     </div>
+    <!-- <div>
+        <<?php //echo "$data->lat_origen"; ?>
+    </div> -->
 </body>
 </html>
 @endsection
