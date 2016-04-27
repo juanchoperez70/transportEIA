@@ -23,8 +23,9 @@ class InsertarRutaController extends Controller {
 	{
 		//configuaración
 
-		$lat_origen = '0.0';
-        $lng_origen = '0.0';
+		//$lat_origen = '0.0';
+        //$lng_origen = '0.0';
+        $contadorMarkers = 0;
 
         $config = array();
         $lat = '6.146608428948201';
@@ -33,30 +34,48 @@ class InsertarRutaController extends Controller {
         $config['map_width'] = 400;
         $config['map_height'] = 400;
         $config['zoom'] = 10;
+        $config['places'] = TRUE;
+		$config['placesAutocompleteInputID'] = 'lugarBox';
+        $config['placesAutocompleteBoundsMap'] = TRUE; // set results biased towards the maps viewport
+        $config['placesAutocompleteOnChange'] = 'alert(\'You selected a place\');';
         //Para coger la posicion en la que se hizo clic
-        $config['onclick'] = '
-        						$origen = event.latLng;
-        						$lat_origen = event.latLng.lat();
-        						$lng_origen = event.latLng.lng();
-        						$lat_destino = event.latLng.lat();
-        						$lng_destino = event.latLng.lng();
-        						createMarker_map({ map: map, position: $origen });
-        						document.getElementById("lat_origen").value =
-								document.getElementById("lat_origen").defaultValue = $lat_origen;
-								document.getElementById("lng_origen").value =
-								document.getElementById("lng_origen").defaultValue = $lng_origen;
-								document.getElementById("lat_destino").value =
-								document.getElementById("lat_destino").defaultValue = $lat_destino;
-								document.getElementById("lng_destino").value =
-								document.getElementById("lng_destino").defaultValue = $lng_destino;
-        					';
+        if($contadorMarkers < 2){
+
+			$config['onclick'] =
+			'
+				$pos = event.latLng;
+				createMarker_map({ map: map, position: $pos });
+				var accion = document.getElementById("accion");
+
+				if(accion.options[accion.selectedIndex].value == 0){
+					$lat_origen = event.latLng.lat();
+					$lng_origen = event.latLng.lng();
+
+					document.getElementById("lat_origen").value =
+					document.getElementById("lat_origen").defaultValue = $lat_origen;
+					document.getElementById("lng_origen").value =
+					document.getElementById("lng_origen").defaultValue = $lng_origen;
+				}
+				else{
+					$lat_destino = event.latLng.lat();
+					$lng_destino = event.latLng.lng();
+					
+					document.getElementById("lat_destino").value =
+					document.getElementById("lat_destino").defaultValue = $lat_destino;
+					document.getElementById("lng_destino").value =
+					document.getElementById("lng_destino").defaultValue = $lng_destino;
+				}
+
+			'; 					
+		}
 
  
         \Gmaps::initialize($config);
 		$map = \Gmaps::create_map();
  
         //Devolver vista con datos del mapa
-        return view('InsertarRuta', compact('map'))->with('lat_origen',"$lat_origen")->with('lng_origen', "$lng_origen");
+        return view('InsertarRuta', compact('map'));
+        //->with('lat_origen',"$lat_origen")->with('lng_destino', "$lng_destino")
 	}
 
 	/**
@@ -78,11 +97,27 @@ class InsertarRutaController extends Controller {
     {
         $data = $request->all();
 
+        // $fo = $data['fecha_inicio'];
+        // $fd = $data['fecha_destino'];
+        // $descripcion = $data['descripcion'];
+
+        // echo "$descripcion";
+
+        // echo "origen";
+
+        // echo "$fo";
+
+        // echo "destino";
+        // echo "$fd";
+
+
         //configuaración
         $config = array();
-        $lat = $data['lat_origen'];
-        $lng = $data['lng_origen'];
-        $config['center'] = $lat.','.$lng;
+        $lat_origen = $data['lat_origen'];
+        $lng_origen = $data['lng_origen'];
+        $lat_destino = $data['lat_destino'];
+        $lng_destino = $data['lng_destino'];
+        $config['center'] = $lat_origen.','.$lng_origen;
         $config['map_width'] = 400;
         $config['map_height'] = 400;
         $config['zoom'] = 10;
@@ -91,16 +126,22 @@ class InsertarRutaController extends Controller {
 
         //Punto de inicio
         $marker = array();
-        $lat = '6.146608428948201';
-        $lng = '-75.38988143205643';
-		$marker['position'] = $lat.','.$lng;
+		$marker['position'] = $lat_origen.','.$lng_origen;
+		$marker['infowindow_content'] = 'Inicio!';
+		$marker['icon'] = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=A|9999FF|000000';
+		\Gmaps::add_marker($marker);
+
+		//Punto destino
+		//Punto de inicio
+        $marker = array();
+		$marker['position'] = $lat_destino.','.$lng_destino;
 		$marker['infowindow_content'] = 'Inicio!';
 		$marker['icon'] = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=A|9999FF|000000';
 		\Gmaps::add_marker($marker);
 
 		$map = \Gmaps::create_map();
         $this->rutaDao->guardar($data);
-        return view('verRutas', compact('map'))->with(array('lat_origen' =>"hola"));
+        return view('verRutas', compact('map'));
         //return view('verRutas');
              
 
