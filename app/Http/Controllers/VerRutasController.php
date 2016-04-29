@@ -1,4 +1,10 @@
 <?php namespace App\Http\Controllers;
+use App\Http\Requests;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
+
+use App\Model\Dao\RutaDao;
 
 class VerRutasController extends Controller {
 
@@ -18,9 +24,11 @@ class VerRutasController extends Controller {
 	 *
 	 * @return void
 	 */
-	public function __construct()
+	private $rutaDao;
+	public function __construct(RutaDao $dao)
 	{
 		$this->middleware('auth');
+		$this->rutaDao = $dao;
 	}
 
 	/**
@@ -28,6 +36,7 @@ class VerRutasController extends Controller {
 	 *
 	 * @return Response
 	 */
+
 	public function index()
 	{
 		//configuaración
@@ -67,7 +76,9 @@ class VerRutasController extends Controller {
         $map = \Gmaps::create_map();*/
  
         //Devolver vista con datos del mapa
-        return view('VerRutas', compact('map'));
+        return view('VerRutas')->with('titulo', 'Lista de Rutas')->with
+ 		('rutas', $this->rutaDao->obtenerTodos());
+
 	}
 
 }
