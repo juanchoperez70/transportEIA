@@ -81,4 +81,13 @@ class VerRutasController extends Controller {
 
 	}
 
+	public function getEliminar($id) {
+        if (!$id) {
+            return redirect('verRutas');
+        }
+            $this->rutaDao->eliminar($id);
+            
+        return redirect('verRutas');
+    }
+
 }

@@ -53,9 +53,10 @@
 </a>
  </td>
 <td>
- <a onclick="return confirm('seguro que desea eliminar este usuario?');"
+ <td>
+ <a onclick="return confirm('seguro que desea eliminar esta Ruta?');"
  class="btn btn-danger btn-xs" role="button"
- href="">
+ href="<?php echo url('verRutas/eliminar') ?>/<?php echo $ruta->id ?>">
  eliminar
 </a>
  </td>

@@ -39,3 +39,4 @@ Route::post('usuario/crear',['middleware'=>'auth', 'uses'=>'UsuarioController@gu
 //Route::post('insertarRuta',['middleware'=>'auth', 'uses'=>'InsertarRutaController@postGuardar']);
 Route::get('usuario/ver/{id}',['middleware'=>'auth', 'uses'=>'UsuarioController@ver']);
 Route::get('usuario/eliminar/{id}',['middleware'=>'auth', 'uses'=>'UsuarioController@eliminar']);
+Route::get('verRutas/{id}',['middleware'=>'auth', 'uses'=>'InsertarRutaController@eliminar']);

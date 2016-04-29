@@ -148,6 +148,8 @@ class InsertarRutaController extends Controller {
 
     }
 
+    
+
 	/**
 	 * Display the specified resource.
 	 *
