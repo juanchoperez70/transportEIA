@@ -141,7 +141,8 @@ class InsertarRutaController extends Controller {
 
 		$map = \Gmaps::create_map();
         $this->rutaDao->guardar($data);
-        return view('verRutas', compact('map'));
+        return view('verRutas')->with('titulo', 'Lista de Rutas')->with
+ 		('rutas', $this->rutaDao->obtenerTodos());
         //return view('verRutas');
              
 
