@@ -21,6 +21,8 @@ Route::get('insertarRuta', 'InsertarRutaController@index');
 
 Route::post('insertarRuta', 'InsertarRutaController@postGuardar');
 
+Route::get('detallesRuta', 'DetallesRutaController@index');
+
 Route::controllers([
     'auth' => 'Auth\AuthController',
     'password' => 'Auth\PasswordController',
