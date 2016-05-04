@@ -19,9 +19,10 @@
 <th>Apellido</th>
 <th>Email</th>
 <th>Username</th>
-<th>Clave</th>
+
 <th>Creado en</th>
 <th>Editar</th>
+<th>Ver detalle</th>
 <th>Eliminar</th>
  </tr>
  </thead>
@@ -33,7 +34,7 @@
  <td><?php echo $usuario->apellido ?></td>
  <td><?php echo $usuario->email ?></td>
  <td><?php echo $usuario->usuario ?></td>
- <td><?php echo $usuario->password ?></td>
+ 
  <td><?php echo $usuario->created_at ?></td>
  <td>
  <a class="btn btn-primary btn-xs" role="button"
