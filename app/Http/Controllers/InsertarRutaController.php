@@ -23,10 +23,6 @@ class InsertarRutaController extends Controller {
 	{
 		//configuaración
 
-		//$lat_origen = '0.0';
-        //$lng_origen = '0.0';
-        $contadorMarkers = 0;
-
         $config = array();
         $lat = '6.146608428948201';
         $lng = '-75.38988143205643';
@@ -39,9 +35,7 @@ class InsertarRutaController extends Controller {
         $config['placesAutocompleteBoundsMap'] = TRUE; // set results biased towards the maps viewport
         $config['placesAutocompleteOnChange'] = 'alert(\'You selected a place\');';
         //Para coger la posicion en la que se hizo clic
-        if($contadorMarkers < 2){
-
-			$config['onclick'] =
+        $config['onclick'] =
 			'
 				$pos = event.latLng;
 				createMarker_map({ map: map, position: $pos });
@@ -66,26 +60,15 @@ class InsertarRutaController extends Controller {
 					document.getElementById("lng_destino").defaultValue = $lng_destino;
 				}
 
-			'; 					
-		}
+		'; 
 
  
         \Gmaps::initialize($config);
 		$map = \Gmaps::create_map();
  
         //Devolver vista con datos del mapa
-        return view('InsertarRuta', compact('map'));
+        return view('InsertarRuta', compact('map'))->with('ruta', null);
         //->with('lat_origen',"$lat_origen")->with('lng_destino', "$lng_destino")
-	}
-
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-		//
 	}
 
 	/**
@@ -148,28 +131,40 @@ class InsertarRutaController extends Controller {
 
     }
 
-    
-
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
+	public function modificarRuta($id){
 		//
-	}
+		$ruta = $this->rutaDao->obtenerPorId($id);
+		//configuaración
+        $config = array();
+        $lat_origen = $ruta->lat_origen;
+        $lng_origen = $ruta->lng_origen;
+        $lat_destino = $ruta->lat_destino;
+        $lng_destino = $ruta->lng_destino;
+        $config['center'] = $lat_origen.','.$lng_origen;
+        $config['map_width'] = 400;
+        $config['map_height'] = 400;
+        $config['zoom'] = 10;
+ 
+        \Gmaps::initialize($config);
 
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-		//
+        //Punto de inicio
+        $marker = array();
+		$marker['position'] = $lat_origen.','.$lng_origen;
+		$marker['infowindow_content'] = 'Inicio!';
+		$marker['icon'] = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=A|9999FF|000000';
+		\Gmaps::add_marker($marker);
+
+		//Punto destino
+		//Punto de inicio
+        $marker = array();
+		$marker['position'] = $lat_destino.','.$lng_destino;
+		$marker['infowindow_content'] = 'Inicio!';
+		$marker['icon'] = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=A|9999FF|000000';
+		\Gmaps::add_marker($marker);
+
+		$map = \Gmaps::create_map();
+        
+        return view('InsertarRuta', compact('map'));
 	}
 
 	/**

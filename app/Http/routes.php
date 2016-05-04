@@ -11,7 +11,7 @@
   |
  */
 
-Route::get('/', 'WelcomeController@index');
+Route::get('/', 'HomeController@index');
 
 Route::get('home', 'HomeController@index');
 
@@ -19,7 +19,7 @@ Route::get('verRutas', 'VerRutasController@index');
 
 Route::get('insertarRuta', 'InsertarRutaController@index');
 
-Route::post('insertarRuta', 'InsertarRutaController@postGuardar');
+//Route::post('insertarRuta', 'InsertarRutaController@postGuardar');
 
 Route::get('detallesRuta', 'DetallesRutaController@index');
 
@@ -38,7 +38,9 @@ Route::get('usuario','UsuarioController@index');
 Route::get('usuario/listado','UsuarioController@listar');
 Route::get('usuario/crear',['middleware'=>'auth', 'uses'=>'UsuarioController@crear']);
 Route::post('usuario/crear',['middleware'=>'auth', 'uses'=>'UsuarioController@guardar']);
-//Route::post('insertarRuta',['middleware'=>'auth', 'uses'=>'InsertarRutaController@postGuardar']);
+Route::post('insertarRuta',['middleware'=>'auth', 'uses'=>'InsertarRutaController@postGuardar']);
 Route::get('usuario/ver/{id}',['middleware'=>'auth', 'uses'=>'UsuarioController@ver']);
 Route::get('usuario/eliminar/{id}',['middleware'=>'auth', 'uses'=>'UsuarioController@eliminar']);
 Route::get('verRutas/{id}',['middleware'=>'auth', 'uses'=>'InsertarRutaController@eliminar']);
+Route::get('detallesRuta/modificarRuta/{id}',['middleware'=>'auth', 'uses'=>'DetallesRutaController@modificarRuta']);
+Route::get('detallesRuta/verDetalles/{id}',['middleware'=>'auth', 'uses'=>'DetallesRutaController@verDetalles']);
