@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\Dao\RutaDao;
 
-class InsertarRutaController extends Controller {
+class EditarRutaController extends Controller {
 	private $rutaDao;
 
 	function __construct(RutaDao $dao) {
@@ -67,7 +67,7 @@ class InsertarRutaController extends Controller {
 		$map = \Gmaps::create_map();
  
         //Devolver vista con datos del mapa
-        return view('InsertarRuta', compact('map'))->with('ruta', null);
+        return view('EditarRuta', compact('map'))->with('ruta', null);
         //->with('lat_origen',"$lat_origen")->with('lng_destino', "$lng_destino")
 	}
 
@@ -76,23 +76,9 @@ class InsertarRutaController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function postGuardar(Request $request)
+	public function postEditar(Request $request)
     {
         $data = $request->all();
-
-        // $fo = $data['fecha_inicio'];
-        // $fd = $data['fecha_destino'];
-        // $descripcion = $data['descripcion'];
-
-        // echo "$descripcion";
-
-        // echo "origen";
-
-        // echo "$fo";
-
-        // echo "destino";
-        // echo "$fd";
-
 
         //configuaración
         $config = array();
@@ -123,7 +109,7 @@ class InsertarRutaController extends Controller {
 		\Gmaps::add_marker($marker);
 
 		$map = \Gmaps::create_map();
-        $this->rutaDao->guardar($data);
+        $this->rutaDao->editar($data);
         return view('verRutas')->with('titulo', 'Lista de Rutas')->with
  		('rutas', $this->rutaDao->obtenerTodos());
         //return view('verRutas');
@@ -142,6 +128,10 @@ class InsertarRutaController extends Controller {
         $config['map_width'] = 400;
         $config['map_height'] = 400;
         $config['zoom'] = 10;
+        $config['places'] = TRUE;
+		$config['placesAutocompleteInputID'] = 'lugarBox';
+        $config['placesAutocompleteBoundsMap'] = TRUE; // set results biased towards the maps viewport
+        $config['placesAutocompleteOnChange'] = 'alert(\'You selected a place\');';
  
         \Gmaps::initialize($config);
 
@@ -150,19 +140,39 @@ class InsertarRutaController extends Controller {
 		$marker['position'] = $lat_origen.','.$lng_origen;
 		$marker['infowindow_content'] = 'Inicio!';
 		$marker['icon'] = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=A|9999FF|000000';
+		$marker['draggable'] = 'TRUE';
+		$marker['ondragend'] = '
+					$lat_origen = event.latLng.lat();
+					$lng_origen = event.latLng.lng();
+
+					document.getElementById("lat_origen").value =
+					document.getElementById("lat_origen").defaultValue = $lat_origen;
+					document.getElementById("lng_origen").value =
+					document.getElementById("lng_origen").defaultValue = $lng_origen;
+		';
 		\Gmaps::add_marker($marker);
 
 		//Punto destino
 		//Punto de inicio
         $marker = array();
 		$marker['position'] = $lat_destino.','.$lng_destino;
-		$marker['infowindow_content'] = 'Inicio!';
+		$marker['infowindow_content'] = 'Destino!';
 		$marker['icon'] = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=A|9999FF|000000';
+		$marker['draggable'] = 'TRUE';
+		$marker['ondragend'] = '
+					$lat_destino = event.latLng.lat();
+					$lng_destino = event.latLng.lng();
+					
+					document.getElementById("lat_destino").value =
+					document.getElementById("lat_destino").defaultValue = $lat_destino;
+					document.getElementById("lng_destino").value =
+					document.getElementById("lng_destino").defaultValue = $lng_destino;
+		';
 		\Gmaps::add_marker($marker);
 
 		$map = \Gmaps::create_map();
         
-        return view('InsertarRuta', compact('map'));
+        return view('EditarRuta', compact('map'))->with('ruta', $ruta)->with('id', $id);
 	}
 
 	/**

@@ -42,7 +42,7 @@
 								<td><?php echo $ruta->descripcion ?></td>
 								<td>
 								<a class="btn btn-primary btn-xs" role="button"
-								 href="<?php echo url('detallesRuta/modificarRuta') ?>/<?php echo $ruta->id ?>">
+								 href="<?php echo url('editarRuta/modificarRuta') ?>/<?php echo $ruta->id ?>">
 								 editar
 								</a>
 								</td>

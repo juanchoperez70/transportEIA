@@ -19,6 +19,8 @@ Route::get('verRutas', 'VerRutasController@index');
 
 Route::get('insertarRuta', 'InsertarRutaController@index');
 
+Route::get('editarRuta', 'EditarRutaController@index');
+
 //Route::post('insertarRuta', 'InsertarRutaController@postGuardar');
 
 Route::get('detallesRuta', 'DetallesRutaController@index');
@@ -39,8 +41,9 @@ Route::get('usuario/listado','UsuarioController@listar');
 Route::get('usuario/crear',['middleware'=>'auth', 'uses'=>'UsuarioController@crear']);
 Route::post('usuario/crear',['middleware'=>'auth', 'uses'=>'UsuarioController@guardar']);
 Route::post('insertarRuta',['middleware'=>'auth', 'uses'=>'InsertarRutaController@postGuardar']);
+Route::post('editarRuta',['middleware'=>'auth', 'uses'=>'EditarRutaController@postEditar']);
 Route::get('usuario/ver/{id}',['middleware'=>'auth', 'uses'=>'UsuarioController@ver']);
 Route::get('usuario/eliminar/{id}',['middleware'=>'auth', 'uses'=>'UsuarioController@eliminar']);
 Route::get('verRutas/{id}',['middleware'=>'auth', 'uses'=>'InsertarRutaController@eliminar']);
-Route::get('detallesRuta/modificarRuta/{id}',['middleware'=>'auth', 'uses'=>'DetallesRutaController@modificarRuta']);
+Route::get('editarRuta/modificarRuta/{id}',['middleware'=>'auth', 'uses'=>'EditarRutaController@modificarRuta']);
 Route::get('detallesRuta/verDetalles/{id}',['middleware'=>'auth', 'uses'=>'DetallesRutaController@verDetalles']);

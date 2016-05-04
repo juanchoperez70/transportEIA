@@ -31,6 +31,13 @@ class RutaDao implements IRutaDao {
  			}
  			$ruta->save();
  	} 
+
+ 	 	public function editar(array $data) {
+ 			$id = $data['id'];
+ 			$ruta = Ruta::find($id);
+ 			$ruta->fill($data);
+ 			$ruta->save();
+ 	} 
  	
 
 }
