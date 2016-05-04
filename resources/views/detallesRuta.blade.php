@@ -5,27 +5,46 @@
     <script type="text/javascript">var centreGot = false;</script>{!!$map['js']!!}
 </head>
 <body>
-    <div id="googleMap">
-        {!!$map['html']!!}
-    </div>
-    <div>
-    	{!!Form::label('fechai', 'Fecha y hora de salida: ') !!}
-    	{!!Form::label('fecha_inicio', $ruta['fecha_inicio']) !!}
-    </div>
-    <div>
-    	{!!Form::label('fechaf', 'Fecha y hora de llegada: ') !!}
-    	{!!Form::label('fecha_destino', $ruta['fecha_destino']) !!}
-    </div>
-    <div>
-    	{!!Form::label('lbDescripcion', 'Descripción: ') !!}
-    	{!!Form::label('descripcion', $ruta['descripcion']) !!}
-    </div>
-    <div>
-    	<a role="button"
-		 href="<?php echo url('verRutas') ?>">
-    	{!! Form::button('Volver', array('class' => 'volver')) !!}
-    	</a>
-    </div>
+    <form class="form-detalle" role="form" method="POST" action="<?php echo url() ?>/verRutas">
+        <div>
+                <div id="googleMap">
+                    {!!$map['html']!!}
+                </div>
+                <div>
+                    <div class="form-group">
+                                    <label class="col-md-4 control-label">Fecha y Hora de Salida</label>
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control" name="fecha" value="{{ $ruta['fecha_inicio'] }}">
+                                    </div>
+                    </div>
+                </div>
+                <div>
+                     <label class="col-md-4 control-label">Fecha y Hora de Llegada</label>
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control" name="fecha" value="{{ $ruta['fecha_destino'] }}">
+                                    </div>
+                </div>
+                <div>
+
+                    <label class="col-md-4 control-label">Descripción</label>
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control" name="fecha" value="{{ $ruta['descripcion'] }}">
+                                    </div>
+                </div>
+                <div>
+                    
+                            <button href="verRutas" class="btn btn-primary">
+                                    Volver
+                            </button>
+                    
+                            <button type="submit" class="btn btn-primary">
+                                    Unirse a Ruta!
+                            </button>
+                    
+                </div>
+            </div>    
+    </form>   
+          
 </body>
 </html>
 @endsection
