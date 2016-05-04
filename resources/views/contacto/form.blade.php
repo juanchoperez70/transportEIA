@@ -29,12 +29,6 @@
             </div>
         </div>
         <div class="form-group">
-            <?php echo Form::label('area', 'Contactar a:', array('class' => 'col-sm-2 control-label')); ?>
-            <div class="col-sm-10">
-                <?php echo Form::select('area', array('0' => 'Soporte', '1' => 'Ventas', '2' => 'Ingenieria', '3' => 'Compras')); ?>
-            </div>
-        </div>
-        <div class="form-group">
             <?php echo Form::label('titulo', 'Titulo:', array('class' => 'col-sm-2 control-label')); ?>
             <div class="col-sm-10">
                 <?php echo Form::text('titulo', null, array('class' => 'form-control',)); ?>
