@@ -11,9 +11,9 @@
                     <p>Bienvenido <strong>
                             <?php echo Auth::user()->nombre; ?></strong></p>
                     <ul>
-                        <li><a href="<?php echo url('catalogo/index') ?>">
+                        <li><a href="<?php echo url('listado') ?>">
                                 Administrar Usuarios</a></li>
-                        <li><a href="<?php echo url('catalogo/crear') ?>">
+                        <li><a href="<?php echo url('listado/crear') ?>">
                                 crear usuario (+)</a></li>
                         <li><a href="<?php echo url('auth/logout') ?>">
                                 cerrar sesi&oacute;n</a></li>

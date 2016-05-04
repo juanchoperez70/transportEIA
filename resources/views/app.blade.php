@@ -33,15 +33,18 @@
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
+                     @if (Auth::check())
                         <li><a href="<?php echo url('/') ?>">Home</a></li>
                         <li><a href="<?php echo url('/contacto') ?>">Contacto</a></li>
                         <li><a href="<?php echo url('/verRutas') ?>">Ver Rutas</a></li>
                         <li><a href="<?php echo url('/insertarRuta') ?>">Crear Rutas</a></li>
+                    @endif    
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">
                         @if (Auth::guest())
                         <li><a href="<?php echo url('/auth/login') ?>">Login</a></li>
+                        <li><a href="<?php echo url('/registro') ?>">Registrarse</a></li>
                         @else
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><?php echo Auth::user()->nombre ?> <span class="caret"></span></a>
