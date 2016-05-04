@@ -5,7 +5,8 @@
     <script type="text/javascript">var centreGot = false;</script>{!!$map['js']!!}
 </head>
 <body>
-    <form class="form-detalle" role="form" method="POST" action="<?php echo url() ?>/verRutas">
+    
+    
         <div>
                 <div id="googleMap">
                     {!!$map['html']!!}
@@ -32,19 +33,20 @@
                                     </div>
                 </div>
                 <div>
-                    
-                            <button href="verRutas" class="btn btn-primary">
-                                    Volver
-                            </button>
-                    
-                            <button type="submit" class="btn btn-primary">
-                                    Unirse a Ruta!
-                            </button>
-                    
+                        <div>
+                            <a class="btn btn-primary btn-xs" role="button"
+                                 href="<?php echo url('verRutas')?>">
+                                 Regresar
+                                </a>
+                        </div>
+                        <div>
+                            <a class="btn btn-primary btn-xs" role="button"
+                                 href="<?php echo url('detallesRuta/unirRuta') ?>/<?php echo Auth::user()->id ?>">
+                                 Unirse a la ruta!
+                                </a>
+                        </div>
                 </div>
-            </div>    
-    </form>   
-          
+            </div>     
 </body>
 </html>
 @endsection

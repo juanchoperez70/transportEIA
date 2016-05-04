@@ -31,4 +31,8 @@ class Usuario extends Model implements AuthenticatableContract, CanResetPassword
 	 */
 	protected $hidden = ['password', 'remember_token'];
 
+
+	public function viaje(){
+		return $this->belongsTo('App\Model\Viaje');
+	}
 }

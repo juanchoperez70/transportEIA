@@ -1,5 +1,7 @@
 <?php namespace App\Http\Controllers;
 use App\Model\Dao\RutaDao;
+use App\Model\Dao\UsuarioDao;
+use App\Model\Dao\ViajeDao;
 
 class DetallesRutaController extends Controller {
 
@@ -20,10 +22,12 @@ class DetallesRutaController extends Controller {
 	 *
 	 * @return void
 	 */
-	public function __construct(RutaDao $dao)
+	public function __construct(RutaDao $dao, UsuarioDao $user, ViajeDao $ride)
 	{
 		$this->middleware('auth');
 		$this->rutaDao = $dao;
+		$this->usuarioDao = $user;
+		$this->viajeDao = $ride;
 	}
 
 	/**
@@ -166,6 +170,13 @@ class DetallesRutaController extends Controller {
         //Devolver vista con datos del mapa
         return view('DetallesRuta', compact('map'))->with
  		('ruta', $ruta);
+	}
+
+	public function Unirse($id) {
+		
+			
+			$this->viajeDao->guardar($id);
+			 return view('verRutas');
 	}
 
 }
