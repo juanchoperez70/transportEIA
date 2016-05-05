@@ -41,7 +41,7 @@
                         </div>
                         <div>
                             <a class="btn btn-primary btn-xs" role="button"
-                                 href="<?php echo url('detallesRuta/unirRuta') ?>/<?php echo Auth::user()->id ?>">
+                                 href="<?php echo url('detallesRuta/unirRuta') ?>/<?php echo Auth::user()->id ?>/<?php echo $ruta->id ?>">
                                  Unirse a la ruta!
                                 </a>
                         </div>

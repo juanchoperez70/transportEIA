@@ -24,6 +24,7 @@ class CreateRutasTable extends Migration {
 			$table->datetime('fecha_destino');
 			$table->datetime('updated_at');
 			$table->datetime('created_at');
+			$table->integer('viaje_id');
 			$table->string('descripcion');
 		});
 	}

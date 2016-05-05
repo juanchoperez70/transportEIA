@@ -13,5 +13,7 @@ class Viaje extends Model implements AuthenticatableContract{
  		return $this->hasMany('App\Model\Usuario');
  	}
 
-
+ 	public function ruta() {
+ 		return $this->hasOne('App\Model\Ruta');
+ 	}
 }

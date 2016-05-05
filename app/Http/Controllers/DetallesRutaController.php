@@ -2,6 +2,7 @@
 use App\Model\Dao\RutaDao;
 use App\Model\Dao\UsuarioDao;
 use App\Model\Dao\ViajeDao;
+use Illuminate\Session\Store as Session;
 
 class DetallesRutaController extends Controller {
 
@@ -22,12 +23,13 @@ class DetallesRutaController extends Controller {
 	 *
 	 * @return void
 	 */
-	public function __construct(RutaDao $dao, UsuarioDao $user, ViajeDao $ride)
+	public function __construct(RutaDao $dao, UsuarioDao $user, ViajeDao $ride,Session $session)
 	{
 		$this->middleware('auth');
 		$this->rutaDao = $dao;
 		$this->usuarioDao = $user;
 		$this->viajeDao = $ride;
+		$this->session = $session;
 	}
 
 	/**
@@ -172,11 +174,48 @@ class DetallesRutaController extends Controller {
  		('ruta', $ruta);
 	}
 
-	public function Unirse($id) {
-		
+	public function Unirse($id,$id_ruta) {
 			
-			$this->viajeDao->guardar($id);
-			 return view('verRutas');
+			$ruta = $this->rutaDao->obtenerPorId($id_ruta);
+			//configuaración
+        $config = array();
+        $lat = $ruta->lat_origen;
+        $lng = $ruta->lng_origen;
+        $config['center'] = $lat.','.$lng;
+        $config['map_width'] = 400;
+        $config['map_height'] = 400;
+        $config['zoom'] = 10;
+ 
+        \Gmaps::initialize($config);
+
+        //Punto de inicio
+        $marker = array();
+        $lat = $ruta->lat_origen;
+        $lng = $ruta->lng_origen;
+		$marker['position'] = $lat.','.$lng;
+		$marker['infowindow_content'] = 'Inicio!';
+		$marker['icon'] = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=A|9999FF|000000';
+		\Gmaps::add_marker($marker);
+
+		//punto final
+        $marker = array();
+        $lat = $ruta->lat_destino;
+        $lng = $ruta->lng_destino;
+		$marker['position'] = $lat.','.$lng;
+		$marker['infowindow_content'] = 'Fin!';
+		\Gmaps::add_marker($marker);
+		
+		//Creat mapa
+		$map = \Gmaps::create_map();	
+
+
+
+
+			$this->viajeDao->guardar($id,$id_ruta);
+			 $this->session->flash('message', "Te has unido a la ruta con Éxito");
+			 $this->session->flash('alert-class', 'alert-success');
+			 return view('DetallesRuta', compact('map'))->with
+ 		('ruta', $ruta);
 	}
 
 }

@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration {
 			$table->string('usuario');
 			$table->string('password');
 			$table->string('comentario', 250);
+			$table->integer('viaje_id')->unsigned();
 			$table->rememberToken();
 			$table->timestamps();
 		});

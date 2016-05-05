@@ -47,4 +47,4 @@ Route::get('usuario/eliminar/{id}',['middleware'=>'auth', 'uses'=>'UsuarioContro
 Route::get('verRutas/{id}',['middleware'=>'auth', 'uses'=>'InsertarRutaController@eliminar']);
 Route::get('editarRuta/modificarRuta/{id}',['middleware'=>'auth', 'uses'=>'EditarRutaController@modificarRuta']);
 Route::get('detallesRuta/verDetalles/{id}',['middleware'=>'auth', 'uses'=>'DetallesRutaController@verDetalles']);
-Route::get('detallesRuta/unirRuta/{id}',['middleware'=>'auth', 'uses'=>'DetallesRutaController@Unirse']);
+Route::get('detallesRuta/unirRuta/{id}/{id_ruta}',['middleware'=>'auth', 'uses'=>'DetallesRutaController@Unirse']);

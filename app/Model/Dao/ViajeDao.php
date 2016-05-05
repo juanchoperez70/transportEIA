@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Eloquent\Model;
 use App\Model\Usuario;
+use App\Model\Ruta;
 use App\Model\Viaje;
 
 class ViajeDao implements IViajeDao {
@@ -21,10 +22,17 @@ class ViajeDao implements IViajeDao {
  				$viaje->delete();
  			}
  		}
- 	public function guardar($id) {
- 		$data = array('usuario_id' =>$id ,'ruta_id'=>'3' );
+ 	public function guardar($id,$id_ruta) {
+ 		
+ 			$usuario= Usuario::find($id);
+ 			$usuario_id = $usuario['id'];
+ 			$ruta = Ruta::find($id_ruta);
+ 			$ruta_id = $ruta['id'];
+ 			$data = array('usuario_id'=>$usuario_id,'ruta_id'=>$ruta_id );
  			$viaje = Viaje::create($data);
- 			$viaje->usuarios()->save($data);
+
+ 			$viaje->usuarios()->save($usuario);
+ 			$viaje->ruta()->save($ruta);
  			$viaje->save();
  			return $viaje;
  	} 
