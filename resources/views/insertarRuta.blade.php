@@ -122,7 +122,7 @@
 						   			<?php echo Form::textarea('notes',null, array('class' => 'form-control', 'id' => 'descripcion','name'=>'descripcion')); ?>
 						   		</div>
 							@endif
-								<button type="submit" class="btn btn-primary col-md-offset-6">
+								<button type="submit" class="btn btn-primary btn-lg col-md-offset-6">
 									Guardar
 								</button>
 					   	</div>		    
