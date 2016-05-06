@@ -19,7 +19,7 @@
                         <div>
                             <label class="col-md-4 control-label">Fecha y Hora de Salida</label>
                                 <div class="col-md-4">
-                                    <input type="text" class="form-control" name="fecha" value="{{ $ruta['fecha_inicio'] }}">
+                                    <input type="text" class="form-control" name="fecha" value="{{ $ruta['fecha_inicio'] }}"disabled>
                                 </div>
                         </div>
                         
@@ -28,21 +28,21 @@
                     <div>
                          <label class="col-md-4 control-label">Fecha y Hora de Llegada</label>
                             <div class="col-md-4">
-                                <input type="text" class="form-control" name="fecha" value="{{ $ruta['fecha_destino'] }}">
+                                <input type="text" class="form-control" name="fecha" value="{{ $ruta['fecha_destino'] }}"disabled>
                             </div>
                     </div>
                     <div>
 
                         <label class="col-md-4 control-label">Descripción</label>
                             <div class="col-md-4">
-                                <input type="text" class="form-control" name="fecha" value="{{ $ruta['descripcion'] }}">
+                                <input type="text" class="form-control" name="fecha" value="{{ $ruta['descripcion'] }}"disabled>
                             </div>
                     </div>
                     
                         <div class="col-md-6">
                                 
                                 
-                            <a class="col-md-3 btn btn-primary" role="button"
+                            <a class="col-md-3 btn btn-info" role="button"
                                  href="<?php echo url('detallesRuta/unirRuta') ?>/<?php echo Auth::user()->id ?>/<?php echo $ruta->id ?>">
                                  Unirse a la ruta!
                                 </a>
