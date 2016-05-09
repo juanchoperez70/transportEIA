@@ -165,6 +165,15 @@ class DetallesRutaController extends Controller {
 		$marker['position'] = $lat.','.$lng;
 		$marker['infowindow_content'] = 'Fin!';
 		\Gmaps::add_marker($marker);
+
+		$polygon = array();
+		$polygon['points'] = array('37.425, -122.1321',
+					   '37.4422, -122.1622',
+					   '37.4412, -122.1322',
+					   '37.425, -122.1021');
+		$polygon['strokeColor'] = '#000099';
+		$polygon['fillColor'] = '#000099';
+		\Gmaps::add_polygon($polygon);
 		
 		//Creat mapa
 		$map = \Gmaps::create_map();
