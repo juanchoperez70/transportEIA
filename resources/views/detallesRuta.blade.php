@@ -44,14 +44,16 @@
                                 
                             <a class="col-md-3 btn btn-info" role="button"
                                  href="<?php echo url('detallesRuta/unirRuta') ?>/<?php echo Auth::user()->id ?>/<?php echo $ruta->id ?>">
-                                 Unirse a la ruta!
+                                 Unirse a la ruta! <i class="fa fa-flag-checkered">
+                                    </i>
                                 </a>
                         
                          
 
                             <a class="col-md-3 col-md-offset-1 btn btn-primary" role="button"
                                  href="<?php echo url('verRutas')?>">
-                                 Regresar
+                                 Regresar <i class="fa fa-arrow-right">
+                                </i>
                                 </a>
                                 
                         </div>

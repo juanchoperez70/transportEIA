@@ -42,10 +42,14 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
                      @if (Auth::check())
-                        <li><a href="<?php echo url('/') ?>">Home</a></li>
-                        <li><a href="<?php echo url('/contacto') ?>">Contacto</a></li>
-                        <li><a href="<?php echo url('/verRutas') ?>">Ver Rutas</a></li>
-                        <li><a href="<?php echo url('/insertarRuta') ?>">Crear Rutas</a></li>
+                        <li><a href="<?php echo url('/') ?>">Home <i class="fa fa-home">
+                        </i></a></li>
+                        <li><a href="<?php echo url('/contacto') ?>">Contacto <i class="fa fa-comment">
+                        </i></a></li>
+                        <li><a href="<?php echo url('/verRutas') ?>">Ver Rutas <i class="fa fa-car">
+                        </i></a></li>
+                        <li><a href="<?php echo url('/insertarRuta') ?>">Crear Rutas <i class="fa fa-road">
+                        </i></a></li>
                     @endif    
                     </ul>
 
@@ -55,7 +59,8 @@
                         <li><a href="<?php echo url('/registro') ?>">Registrarse</a></li>
                         @else
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><?php echo Auth::user()->nombre ?> <span class="caret"></span></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><?php echo Auth::user()->nombre ?>  <i class="fa fa-user">
+                            </i> <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="<?php echo url('/auth/logout') ?>">Logout</a></li>
                             </ul>

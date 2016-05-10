@@ -123,7 +123,8 @@
 						   		</div>
 							@endif
 								<button type="submit" class="btn btn-primary btn-lg col-md-offset-6">
-									Guardar
+									Guardar  <i class="fa fa-check-circle">
+        									</i>
 								</button>
 					   	</div>		    
 					</div>
