@@ -33,8 +33,8 @@
 							  
 						</div>
 						<div class="form-group">
-			        		<div class="col-md-8">
-			        			<select class="selectpicker">
+			        		<div class="col-md-5">
+			        			<select class="selectpicker form-control " multiple>
 								  <option>Mustard</option>
 								  <option>Ketchup</option>
 								  <option>Relish</option>
