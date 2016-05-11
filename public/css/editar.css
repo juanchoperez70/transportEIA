@@ -1,0 +1,17 @@
+textarea.form-control{
+	height: 150px;
+	width: 314px;
+}
+#form-left{
+
+	margin-top: -450px;
+    margin-left: -170px;
+}
+
+.control-label,.form-control,.btn-primary{
+	margin-top: 10px;
+}
+
+img{
+	margin-bottom: 10px;
+}

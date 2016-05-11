@@ -5,13 +5,15 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use App\Model\Dao\RutaDao;
+use App\Model\Dao\ZonaDao;
 
 class InsertarRutaController extends Controller {
 	private $rutaDao;
 
-	function __construct(RutaDao $dao) {
+	function __construct(RutaDao $dao, ZonaDao $zone) {
+			$this->middleware('auth');
             $this->rutaDao = $dao;
-            $this->middleware('auth');
+             $this->zonaDao = $zone;
     }
 
 	/**
@@ -67,7 +69,7 @@ class InsertarRutaController extends Controller {
 		$map = \Gmaps::create_map();
  
         //Devolver vista con datos del mapa
-        return view('InsertarRuta', compact('map'))->with('ruta', null);
+        return view('InsertarRuta', compact('map'))->with('ruta', null)->with('zonas',$this->zonaDao->obtenerTodos());
         //->with('lat_origen',"$lat_origen")->with('lng_destino', "$lng_destino")
 	}
 

@@ -5,6 +5,14 @@
 <head>
     <script type="text/javascript">var centreGot = false;</script>{!!$map['js']!!}
     <link href="<?php echo url('/css/insertar.css') ?>" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
+
+<!-- (Optional) Latest compiled and minified JavaScript translation files -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/i18n/defaults-*.min.js"></script>
+
 </head>
 <body>
     <form class="form-horizontal" role="form" method="POST" action="<?php echo url() ?>/insertarRuta">
@@ -21,6 +29,16 @@
 								    <option value="0" selected>Origen</option>
 								    <option value="Destino">Destino</option>
 							  	</select>
+			        		</div>
+							  
+						</div>
+						<div class="form-group">
+			        		<div class="col-md-5">
+			        			<select class="selectpicker form-control " title="Seleccione sus zonas..." multiple>
+			        			<?php foreach ($zonas as $zona): ?>
+								  <option><?php echo $zona->nombre ?></option>
+								 <?php endforeach; ?>
+								</select>
 			        		</div>
 							  
 						</div>
@@ -123,7 +141,8 @@
 						   		</div>
 							@endif
 								<button type="submit" class="btn btn-primary btn-lg col-md-offset-6">
-									Guardar
+									Guardar  <i class="fa fa-check-circle">
+        									</i>
 								</button>
 					   	</div>		    
 					</div>

@@ -18,6 +18,8 @@
 
         <!-- Fonts -->
         <link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+        <script src="http://harvesthq.github.io/chosen/chosen.jquery.js"></script>
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -42,22 +44,30 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
                      @if (Auth::check())
-                        <li><a href="<?php echo url('/') ?>">Home</a></li>
-                        <li><a href="<?php echo url('/contacto') ?>">Contacto</a></li>
-                        <li><a href="<?php echo url('/verRutas') ?>">Ver Rutas</a></li>
-                        <li><a href="<?php echo url('/insertarRuta') ?>">Crear Rutas</a></li>
+                        <li><a href="<?php echo url('/') ?>">Home <i class="fa fa-home">
+                        </i></a></li>
+                        <li><a href="<?php echo url('/contacto') ?>">Contacto <i class="fa fa-comment">
+                        </i></a></li>
+                        <li><a href="<?php echo url('/verRutas') ?>">Ver Rutas <i class="fa fa-car">
+                        </i></a></li>
+                        <li><a href="<?php echo url('/insertarRuta') ?>">Crear Rutas <i class="fa fa-road">
+                        </i></a></li>
                     @endif    
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">
                         @if (Auth::guest())
-                        <li><a href="<?php echo url('/auth/login') ?>">Login</a></li>
-                        <li><a href="<?php echo url('/registro') ?>">Registrarse</a></li>
+                        <li><a href="<?php echo url('/auth/login') ?>">Login <i class="fa fa-arrow-circle-right">
+                        </i></a></li>
+                        <li><a href="<?php echo url('/registro') ?>">Registrarse <i class="fa fa-pencil-square-o">
+                        </i></a></li>
                         @else
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><?php echo Auth::user()->nombre ?> <span class="caret"></span></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><?php echo Auth::user()->nombre ?>  <i class="fa fa-user">
+                            </i> <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="<?php echo url('/auth/logout') ?>">Logout</a></li>
+                                <li><a href="<?php echo url('/auth/logout') ?>">Logout <i class="fa fa-power-off">
+                                </i></a></li>
                             </ul>
                         </li>
                         @endif
