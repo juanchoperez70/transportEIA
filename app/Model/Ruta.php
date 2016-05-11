@@ -25,4 +25,8 @@ class Ruta extends Model implements AuthenticatableContract {
 	public function viaje(){
 		return $this->belongsTo('App\Model\Viaje');
 	}
+
+	public function zonas(){
+		return $this->hasMany('App\Model\Zona');
+	}
 }

@@ -34,10 +34,10 @@
 						</div>
 						<div class="form-group">
 			        		<div class="col-md-5">
-			        			<select class="selectpicker form-control " multiple>
-								  <option>Mustard</option>
-								  <option>Ketchup</option>
-								  <option>Relish</option>
+			        			<select class="selectpicker form-control " title="Seleccione sus zonas..." multiple>
+			        			<?php foreach ($zonas as $zona): ?>
+								  <option><?php echo $zona->nombre ?></option>
+								 <?php endforeach; ?>
 								</select>
 			        		</div>
 							  
