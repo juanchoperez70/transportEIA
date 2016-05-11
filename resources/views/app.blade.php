@@ -57,14 +57,17 @@
 
                     <ul class="nav navbar-nav navbar-right">
                         @if (Auth::guest())
-                        <li><a href="<?php echo url('/auth/login') ?>">Login</a></li>
-                        <li><a href="<?php echo url('/registro') ?>">Registrarse</a></li>
+                        <li><a href="<?php echo url('/auth/login') ?>">Login <i class="fa fa-arrow-circle-right">
+                        </i></a></li>
+                        <li><a href="<?php echo url('/registro') ?>">Registrarse <i class="fa fa-pencil-square-o">
+                        </i></a></li>
                         @else
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><?php echo Auth::user()->nombre ?>  <i class="fa fa-user">
                             </i> <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="<?php echo url('/auth/logout') ?>">Logout</a></li>
+                                <li><a href="<?php echo url('/auth/logout') ?>">Logout <i class="fa fa-power-off">
+                                </i></a></li>
                             </ul>
                         </li>
                         @endif
