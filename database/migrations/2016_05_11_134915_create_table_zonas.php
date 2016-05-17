@@ -27,6 +27,7 @@ class CreateTableZonas extends Migration {
 			$table->string('descripcion',200);
 			$table->datetime('updated_at');
 			$table->datetime('created_at');
+
 		});
 	}
 

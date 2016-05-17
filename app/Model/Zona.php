@@ -29,10 +29,10 @@ class Zona extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 *
 	 * @var array
 	 */
-	protected $hidden = ['password', 'remember_token'];
+	
 
 
-	public function ruta(){
-		return $this->belongsTo('App\Model\Ruta');
+	public function rutas(){
+		return $this->belongsToMany('App\Model\Ruta');
 	}
 }

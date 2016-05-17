@@ -2,6 +2,8 @@
 
 use Illuminate\Database\Eloquent\Model;
 use App\Model\Ruta;
+use App\Model\Zona;
+use App\Model\Ruta_Zona;
 
 
 class RutaDao implements IRutaDao {
@@ -18,6 +20,10 @@ class RutaDao implements IRutaDao {
  		public function eliminar($id) {
  			if ($id) {
  				$ruta = Ruta::find($id);
+ 				
+ 				foreach ($ruta->zonas as $zona) {
+ 					$ruta->zonas()->detach($zona);
+ 				}
  				$ruta->delete();
  			}
  		}
@@ -29,6 +35,14 @@ class RutaDao implements IRutaDao {
  			} else {
  				$ruta = Ruta::create($data);
  			}
+ 			
+ 			
+ 			$zona_list= $data['zonas'];
+ 			
+ 			foreach ($zona_list as $zone) {
+ 				$ruta->zonas()->attach($zone); 			
+ 			}
+
  			$ruta->save();
  	} 
 
