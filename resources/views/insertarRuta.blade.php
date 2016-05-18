@@ -34,9 +34,10 @@
 						</div>
 						<div class="form-group">
 			        		<div class="col-md-5">
-			        			<select class="selectpicker form-control " title="Seleccione sus zonas..." multiple>
+			        			
+			        			<select class="selectpicker form-control " method="post" name="zonas[]" title="Seleccione sus zonas..." multiple>
 			        			<?php foreach ($zonas as $zona): ?>
-								  <option><?php echo $zona->nombre ?></option>
+								  <option value="<?php echo $zona->id; ?>"><?php echo $zona->nombre ?></option>
 								 <?php endforeach; ?>
 								</select>
 			        		</div>
@@ -86,7 +87,7 @@
 			                <?php echo Form::text('lng_destino', $ruta->lng_destino, array('class' => 'form-control', 'id' => 'lng_destino',)); ?>
 			            </div>
 			        @endif
-			        
+							
 			    </div>    
 			        <div class="col-md-6" id="form-left">
 			            <div>
