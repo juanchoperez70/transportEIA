@@ -106,6 +106,7 @@ class InsertarRutaController extends Controller {
         $config['map_width'] = 400;
         $config['map_height'] = 400;
         $config['zoom'] = 10;
+        // $zonas = $data['zonas'];
  
         \Gmaps::initialize($config);
 
@@ -125,6 +126,7 @@ class InsertarRutaController extends Controller {
 		\Gmaps::add_marker($marker);
 
 		$map = \Gmaps::create_map();
+
         $this->rutaDao->guardar($data);
         return view('verRutas')->with('titulo', 'Lista de Rutas')->with
  		('rutas', $this->rutaDao->obtenerTodos());
