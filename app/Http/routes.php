@@ -34,6 +34,7 @@ Route::controllers([
     'insertarRuta' => 'InsertarRutaController',
     'registro' => 'RegistroUsuarioController',
     'listado'  => 'ListadoController',
+    
 ]);
 
 Route::get('usuario','UsuarioController@index');
@@ -48,3 +49,4 @@ Route::get('verRutas/{id}',['middleware'=>'auth', 'uses'=>'InsertarRutaControlle
 Route::get('editarRuta/modificarRuta/{id}',['middleware'=>'auth', 'uses'=>'EditarRutaController@modificarRuta']);
 Route::get('detallesRuta/verDetalles/{id}',['middleware'=>'auth', 'uses'=>'DetallesRutaController@verDetalles']);
 Route::get('detallesRuta/unirRuta/{id}/{id_ruta}',['middleware'=>'auth', 'uses'=>'DetallesRutaController@Unirse']);
+Route::get('viajes/{id}',['middleware'=>'auth', 'uses'=>'ViajesController@index']);

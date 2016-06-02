@@ -44,7 +44,11 @@ class ViajeDao implements IViajeDao {
 
  	public function getByUserRuta($id_user,$id_ruta){
 
- 		return Viaje::where('usuario_id',$id_user)->where('ruta_id',$id_ruta);
+ 		return Viaje::where('usuario_id',$id_user)->where('ruta_id',$id_ruta)->get();
+ 	}
+
+ 	public function getByUser($id){
+ 		return Viaje::where('usuario_id',$id)->get();
  	}
 
 }

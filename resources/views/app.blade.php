@@ -52,6 +52,8 @@
                         </i></a></li>
                         <li><a href="<?php echo url('/insertarRuta') ?>">Crear Rutas <i class="fa fa-road">
                         </i></a></li>
+                        <li><a href="<?php echo url('/viajes') ?>/<?php echo Auth::user()->id ?>">Mis Viajes <i class="fa fa-compass">
+                        </i></a></li>
                     @endif    
                     </ul>
 
