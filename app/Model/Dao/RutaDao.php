@@ -11,7 +11,7 @@ class RutaDao implements IRutaDao {
 	//
 
 	 public function obtenerPorId($id) {
-	 return Ruta::find($id);
+	 return Ruta::find($id)->get();
  	}
  		public function obtenerTodos() {
  		return Ruta::all();

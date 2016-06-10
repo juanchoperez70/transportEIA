@@ -10,7 +10,7 @@ class ViajeDao implements IViajeDao {
 	//
 
 	 public function obtenerPorId($id) {
-	 return Viaje::find($id);
+	 return Viaje::find($id)->get();
  	}
  		public function obtenerTodos() {
  		return Viaje::all();
@@ -47,8 +47,21 @@ class ViajeDao implements IViajeDao {
  		return Viaje::where('usuario_id',$id_user)->where('ruta_id',$id_ruta)->get();
  	}
 
+ 	public function getByUserDetailed($id){
+ 		$viajes = Viaje::where('usuario_id',$id)->get();
+ 		$ruta = array();
+ 			foreach ($viajes as $viaje) {
+ 				$ruta[] = Ruta::find($viaje->ruta_id);
+ 			}
+
+ 		return $ruta;
+ 	}
+
+
  	public function getByUser($id){
  		return Viaje::where('usuario_id',$id)->get();
  	}
+
+ 	
 
 }

@@ -9,7 +9,7 @@ class UsuarioDao implements IUsuarioDao {
 	//
 
 	 public function obtenerPorId($id) {
-	 return Usuario::find($id);
+	 return Usuario::find($id)->get();
  	}
  		public function obtenerTodos() {
  		return Usuario::all();
