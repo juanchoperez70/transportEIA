@@ -26,6 +26,9 @@ class CreateRutasTable extends Migration {
 			$table->datetime('created_at');
 			$table->integer('viaje_id');
 			$table->string('descripcion');
+			$table->integer('usuario_id')->unsigned();
+			$table->foreign('usuario_id')->references('id')->on('usuarios');
+
 		});
 	}
 

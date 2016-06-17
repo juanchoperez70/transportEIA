@@ -15,6 +15,7 @@
 
 </head>
 <body>
+
     <form class="form-horizontal" role="form" method="POST" action="<?php echo url() ?>/insertarRuta">
     	<div class="row">
 			<div class="form-group">
@@ -141,6 +142,9 @@
 						   			<?php echo Form::textarea('notes',null, array('class' => 'form-control', 'id' => 'descripcion','name'=>'descripcion')); ?>
 						   		</div>
 							@endif
+								<div style="display: none;">
+						   			<?php echo Form::textarea('usuario_id',Auth::user()->id); ?>
+						   		</div>
 								<button type="submit" class="btn btn-primary btn-lg col-md-offset-6">
 									Guardar  <i class="fa fa-check-circle">
         									</i>

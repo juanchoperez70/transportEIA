@@ -35,4 +35,7 @@ class Usuario extends Model implements AuthenticatableContract, CanResetPassword
 	public function viaje(){
 		return $this->belongsTo('App\Model\Viaje');
 	}
+	public function rutas(){
+		return $this->hasMany('App\Model\Ruta');
+	}
 }

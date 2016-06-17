@@ -20,10 +20,14 @@ class Ruta extends Model implements AuthenticatableContract {
 	 *
 	 * @var array
 	 */
-	protected $fillable = ['lat_origen', 'lng_origen', 'lat_destino', 'lng_destino', 'fecha_inicio', 'fecha_destino', 'descripcion'];
+	protected $fillable = ['lat_origen', 'lng_origen', 'lat_destino', 'lng_destino', 'fecha_inicio', 'fecha_destino', 'descripcion','usuario_id'];
 	
 	public function viaje(){
 		return $this->belongsTo('App\Model\Viaje');
+	}
+
+	public function driver(){
+		return $this->belongsTo('App\Model\Usuario');
 	}
 
 	public function zonas(){
