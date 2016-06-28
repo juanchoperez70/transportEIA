@@ -31,45 +31,45 @@ class DatabaseSeeder extends Seeder {
 //          DB::table('zonas')->delete();
 //         Zona::create(
 //             array(
-//                 'nombre' => 'Zona_prueba',
-//                 'punto1' => '37.425',
-//                 'punto2' => '-122.1321',
-//                 'punto3' => '37.442',
-//                 'punto4' => '-122.1622',
-//                 'punto5' => '37.4412',
-//                 'punto6' => '-122.1322',
-//                 'punto7' => '37.425',
-//                 'punto8' => '-122.1021',
+//                 'nombre' => 'San Diego',
+//                 'punto1' => '6.23471715494602',
+//                 'punto2' => '-75.57014465332031',
+//                 'punto3' => '6.236540931525322',
+//                 'punto4' => '-75.5687928199768',
+//                 'punto5' => '6.228445874812434',
+//                 'punto6' => '-75.56387901306152',
+//                 'punto7' => '6.230749619080851',
+//                 'punto8' => '-72.56868553161621',
 //                 'descripcion' => 'Esta es la prueba del módulo de zonas')
 
 //         );
 //         Zona::create(
 //             array(
-//                 'nombre' => 'Zona_prueba1',
-//                 'punto1' => '37.425',
-//                 'punto2' => '-122.1321',
-//                 'punto3' => '37.442',
-//                 'punto4' => '-122.1622',
-//                 'punto5' => '37.4412',
-//                 'punto6' => '-122.1322',
-//                 'punto7' => '37.425',
-//                 'punto8' => '-122.1021',
+//                 'nombre' => 'Balsos',
+//                 'punto1' => '6.188726030677375',
+//                 'punto2' => '-75.56130409240723',
+//                 'punto3' => '6.185440796831991',
+//                 'punto4' => '-75.54654121398926',
+//                 'punto5' => '6.183520845521834',
+//                 'punto6' => '-75.54563999176025',
+//                 'punto7' => '6.184587485999269',
+//                 'punto8' => '-75.5613899230957',
 //                 'descripcion' => 'Esta es la prueba1 del módulo de zonas')
 
 //         );
 
-// Zona::create(
+//         Zona::create(
 //             array(
-//                 'nombre' => 'Zona_prueba2',
-//                 'punto1' => '37.425',
-//                 'punto2' => '-122.1321',
-//                 'punto3' => '37.442',
-//                 'punto4' => '-122.1622',
-//                 'punto5' => '37.4412',
-//                 'punto6' => '-122.1322',
-//                 'punto7' => '37.425',
-//                 'punto8' => '-122.1021',
-//                 'descripcion' => 'Esta es la prueba2 del módulo de zonas')
+//                 'nombre' => 'Oriente',
+//                 'punto1' => '6.162400921526595',
+//                 'punto2' => '-75.43642044067383',
+//                 'punto3' => '6.183904836341574',
+//                 'punto4' => '-75.43470382690432',
+//                 'punto5' => '6.168544986241183',
+//                 'punto6' => '-75.51521301269531',
+//                 'punto7' => '6.15233132833537',
+//                 'punto8' => '-75.51658630371094',
+//                 'descripcion' => 'Esta es la prueba1 del módulo de zonas')
 
 //         );
 

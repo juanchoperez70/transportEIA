@@ -36,7 +36,7 @@
 						<div class="form-group">
 			        		<div class="col-md-5">
 			        			
-			        			<select class="selectpicker form-control " method="post" name="zonas[]" title="Seleccione sus zonas..." multiple>
+			        			<select class="selectpicker form-control " id="zonas" method="post" name="zonas[]" title="Seleccione sus zonas..." multiple>
 			        			<?php foreach ($zonas as $zona): ?>
 								  <option value="<?php echo $zona->id; ?>"><?php echo $zona->nombre ?></option>
 								 <?php endforeach; ?>
