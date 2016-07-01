@@ -11,8 +11,9 @@
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
     <!-- Ionicons 2.0.0 -->
         <link href="{{ asset('/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') }}" rel="stylesheet" type="text/css" />
+
  
-        <title>Súbete</title>
+        <title>Súbete </title>
 
         <link href="<?php echo url('/css/app.css') ?>" rel="stylesheet">
 
@@ -38,7 +39,8 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Súbete</a>
+                    <div> <a class="navbar-brand" href="#">Súbete</a><!-- <img src="images/logo.png"> --></div>
+                   
                 </div>
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

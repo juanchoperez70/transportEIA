@@ -14,9 +14,9 @@
                         <li><a href="<?php echo url('listado') ?>">
                                 Administrar Usuarios</a></li>
                         <li><a href="<?php echo url('listado/crear') ?>">
-                                crear usuario (+)</a></li>
+                                Crear usuario (+)</a></li>
                         <li><a href="<?php echo url('auth/logout') ?>">
-                                cerrar sesi&oacute;n</a></li>
+                                Cerrar sesi&oacute;n</a></li>
                     </ul>
                 </div>
 
