@@ -50,3 +50,4 @@ Route::get('editarRuta/modificarRuta/{id}',['middleware'=>'auth', 'uses'=>'Edita
 Route::get('detallesRuta/verDetalles/{id}',['middleware'=>'auth', 'uses'=>'DetallesRutaController@verDetalles']);
 Route::get('detallesRuta/unirRuta/{id}/{id_ruta}',['middleware'=>'auth', 'uses'=>'DetallesRutaController@Unirse']);
 Route::get('viajes/{id}',['middleware'=>'auth', 'uses'=>'ViajesController@index']);
+Route::get('viajes/verDetalles/{id}',['middleware'=>'auth', 'uses'=>'ViajesController@verDetalles']);
