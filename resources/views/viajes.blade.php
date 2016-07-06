@@ -31,7 +31,7 @@
 								<td><?php echo $viaje->created_at ?></td>
 								<td>
 								<a class="btn btn-primary btn-xs" role="button"
-								 href="<?php echo url('detallesRuta/verDetalles') ?>/<?php echo $viaje->ruta_id ?>">
+								 href="<?php echo url('viajes/verDetalles') ?>/<?php echo $viaje->id ?>">
 								<i class="fa fa-eye">
         						</i> ver detalle
 								</a>
