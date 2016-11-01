@@ -44,26 +44,7 @@ class InsertarRutaController extends Controller {
 				var accion = document.getElementById("accion");
 				var zonas = document.getElementById("zonas");
 
-				if(zonas.options[zonas.selectedIndex].value == 1){
-					
-    				var poly = new google.maps.Polyline({ map: map, path: [ {lat: 6.188726030677375, lng: -75.56130409240723},
-      {lat: 6.185440796831991, lng: -75.54654121398926},
-      {lat: 6.183520845521834, lng: -75.54563999176025},{lat: 6.184587485999269, lng:-75.5613899230957},{lat: 6.188726030677375, lng: -75.56130409240723}], strokeColor: "#FF0000", strokeOpacity:0.8, strokeWeight: 2 , fillColor: "#FF0000", fillOpacity: 0.35});
-				}
-
-				if(zonas.options[zonas.selectedIndex].value == 2){
-					
-    				var poly = new google.maps.Polyline({ map: map, path: [ {lat: 6.23471715494602, lng: -75.57014465332031},
-      {lat: 6.236540931525322, lng: -75.5687928199768},
-      {lat: 6.228445874812434, lng: -75.56387901306152},{lat: 6.230749619080851, lng:-75.56868553161621},{lat: 6.23471715494602, lng: -75.57014465332031}], strokeColor: "#FF0000", strokeOpacity:0.8, strokeWeight: 2 , fillColor: "#FF0000", fillOpacity: 0.35});
-				}
-
-				if(zonas.options[zonas.selectedIndex].value == 3){
-					
-    				var poly = new google.maps.Polyline({ map: map, path: [ {lat: 6.162400921526595, lng: -75.43642044067383},
-      {lat: 6.183904836341574, lng: -75.43470382690432},
-      {lat: 6.168544986241183, lng: -75.51521301269531},{lat: 6.15233132833537, lng:-75.51658630371094},{lat: 6.162400921526595, lng: -75.43642044067383}], strokeColor: "#FF0000", strokeOpacity:0.8, strokeWeight: 2 , fillColor: "#FF0000", fillOpacity: 0.35});
-				}
+				
 
 				if(accion.options[accion.selectedIndex].value == 0){
 					$lat_origen = event.latLng.lat();

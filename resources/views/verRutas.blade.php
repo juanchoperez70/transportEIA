@@ -18,11 +18,8 @@
 				 style="width:800px; text-align:left">
 					<thead>
 						<tr>
-							<th>Id</th>
-							<th>Latitud Origen</th>
-							<th>Longitud Origen</th>
-							<th>Latitud Destino</th>
-							<th>Longitud Destino</th>
+							<th>Usuario</th>
+							<th>Zona</th>
 							<th>Fecha de Inicio</th>
 							<th>Fecha de Destino</th>
 							<th>Descripción</th>
@@ -31,11 +28,8 @@
 					 <tbody>
 						 <?php foreach ($rutas as $ruta): ?>
 							 <tr>
-								<td><?php echo $ruta->id ?></td>
-								<td><?php echo $ruta->lat_origen ?></td>
-								<td><?php echo $ruta->lng_origen ?></td>
-								<td><?php echo $ruta->lat_destino ?></td>
-								<td><?php echo $ruta->lng_destino ?></td>
+								<td><?php echo $ruta->nombre ?> <?php echo $ruta->apellido ?></td>
+								<td><?php echo $ruta->zona_nombre?></td>
 								<td><?php echo $ruta->fecha_inicio ?></td>
 								<td><?php echo $ruta->fecha_destino ?></td>
 								<td><?php echo $ruta->descripcion ?></td>

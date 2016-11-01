@@ -134,6 +134,7 @@ return [
          * Google maps
          */
         'GeneaLabs\Phpgmaps\PhpgmapsServiceProvider',
+        Hootlex\Friendships\FriendshipsServiceProvider::class,
     ],
     /*
       |--------------------------------------------------------------------------

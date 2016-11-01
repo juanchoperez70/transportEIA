@@ -23,10 +23,7 @@ class ViajesController extends Controller {
  	}
 
  	public function index($id) {
- 		$viajes = $this->viajeDao->getByUser($id);
- 		$viajes2 = $this->viajeDao->getByUserDetailed($id);
-		$usuario = $this->usuarioDao->obtenerPorId($id);
- 		return view('viajes')->with('trips',$viajes)->with('user',$usuario)->with('trips2',$viajes2);
+ 		return view('viajes')->with('viajes', $this->viajeDao->getdetailed($id));
  	}
 
  	public function getCrear() {

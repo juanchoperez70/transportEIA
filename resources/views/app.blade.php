@@ -56,6 +56,8 @@
                         </i></a></li>
                         <li><a href="<?php echo url('/viajes') ?>/<?php echo Auth::user()->id ?>">Mis Viajes <i class="fa fa-compass">
                         </i></a></li>
+                        <li><a href="<?php echo url('/buscar') ?>">Buscar personas <i class=" fa fa-search">
+                        </i></a></li>
                     @endif    
                     </ul>
 
@@ -70,6 +72,8 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><?php echo Auth::user()->nombre ?>  <i class="fa fa-user">
                             </i> <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
+                                <li><a href="<?php echo url('perfil')?>/<?php echo Auth::user()->id ?>">Perfil <i class="fa fa-anchor">
+                                </i></a></li>
                                 <li><a href="<?php echo url('/auth/logout') ?>">Logout <i class="fa fa-power-off">
                                 </i></a></li>
                             </ul>

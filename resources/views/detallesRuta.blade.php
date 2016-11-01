@@ -4,7 +4,7 @@
 <head>
     <script type="text/javascript">var centreGot = false;</script>{!!$map['js']!!}
     <link href="<?php echo url('/css/detalle.css') ?>" rel="stylesheet">
-    <meta http-equiv="refresh" content="5" >
+    <meta  content="5" >
 
 </head>
 <body>

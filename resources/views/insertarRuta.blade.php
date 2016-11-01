@@ -4,7 +4,7 @@
 
 <head>
     <script type="text/javascript">var centreGot = false;</script>{!!$map['js']!!}
-    <link href="<?php echo url('/css/insertar.css') ?>" rel="stylesheet">
+    <link href="<?php echo url('/css/insert.css') ?>" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css">
 
 <!-- Latest compiled and minified JavaScript -->

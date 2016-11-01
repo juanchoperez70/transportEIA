@@ -46,7 +46,7 @@ class DetallesRutaController extends Controller {
         $config['center'] = $lat.','.$lng;
         $config['map_width'] = 400;
         $config['map_height'] = 400;
-        $config['zoom'] = 15;
+        $config['zoom'] = 5;
  
         \Gmaps::initialize($config);
 

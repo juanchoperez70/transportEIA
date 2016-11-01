@@ -38,6 +38,8 @@ Route::controllers([
 ]);
 
 Route::get('usuario','UsuarioController@index');
+Route::get('perfil/{id}','UsuarioController@perfil');
+Route::get('buscar','UsuarioController@buscar');
 Route::get('usuario/listado','UsuarioController@listar');
 Route::get('usuario/crear',['middleware'=>'auth', 'uses'=>'UsuarioController@crear']);
 Route::post('usuario/crear',['middleware'=>'auth', 'uses'=>'UsuarioController@guardar']);

@@ -1,6 +1,7 @@
 <?php namespace App\Model\Dao;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 use App\Model\Ruta;
 use App\Model\Zona;
 use App\Model\Ruta_Zona;
@@ -15,7 +16,12 @@ class RutaDao implements IRutaDao {
 	 return Ruta::find($id);
  	}
  		public function obtenerTodos() {
- 		return Ruta::all();
+ 		return DB:: table('rutas')
+            ->join('usuarios', 'rutas.usuario_id', '=', 'usuarios.id')
+            ->join('ruta_zona', 'rutas.id', '=', 'ruta_zona.ruta_id')
+            ->join('zonas', 'ruta_zona.zona_id', '=', 'zonas.id')
+            ->select('rutas.*', 'usuarios.nombre', 'usuarios.apellido', 'zonas.nombre as zona_nombre')
+            ->get();
  		}
 
  		public function eliminar($id) {

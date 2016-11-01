@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Eloquent\Model;
 use App\Model\Usuario;
+use Illuminate\Support\Facades\DB;
 
 
 class UsuarioDao implements IUsuarioDao {
@@ -38,6 +39,13 @@ class UsuarioDao implements IUsuarioDao {
  	}
  	public function obtenerDirecciones() {
  		return Direccion::with('usuario')->get();
+ 	}
+
+ 	public function getrides($id){
+ 		return DB:: table('rutas')
+            ->select(DB::raw('count(*) as rides_count'))
+            ->where('rutas.usuario_id', $id)
+            ->get();
  	}
  	
 

@@ -7,10 +7,14 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Dashboard :: Usuario Autenticado</div>
                 <div class="panel-body">
-
-                    <p>Bienvenido <strong>
+                    <div style="display: inline-flex; align-items: center;">
+                        <img src="images/usuario1.png">
+                        <p>Bienvenido(a) <strong>
                             <?php echo Auth::user()->nombre; ?></strong></p>
+                    </div>        
                     <ul>
+                        <li><a href="<?php echo url('perfil')?>/<?php echo Auth::user()->id ?>">
+                                Perfil</a></li>
                         <li><a href="<?php echo url('listado') ?>">
                                 Administrar Usuarios</a></li>
                         <li><a href="<?php echo url('listado/crear') ?>">

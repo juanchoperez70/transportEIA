@@ -38,6 +38,7 @@ class RegistroUsuarioController extends Controller {
         $validator = Validator::make($data, array('nombre' => 'required|alpha_num', 
         			'apellido' => 'required|alpha_num',
                     'email' => 'required|email',
+                    'celular'=> 'required|num',
                     'username' => 'alpha_num|between:5,10',
                     'clave' => 'alpha_num|between:4,8'), $mensajesEspanol);
 

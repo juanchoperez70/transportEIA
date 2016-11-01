@@ -4,6 +4,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Model\Usuario;
 use App\Model\Ruta;
 use App\Model\Viaje;
+use Illuminate\Support\Facades\DB;
 
 class ViajeDao implements IViajeDao {
 
@@ -63,6 +64,14 @@ class ViajeDao implements IViajeDao {
  		return Viaje::where('usuario_id',$id)->get();
  	}
 
+ 	public function getdetailed($id_traveler){
+ 		return DB:: table('viajes')
+            ->join('rutas', 'rutas.id', '=', 'viajes.ruta_id')
+            ->join('usuarios', 'rutas.usuario_id', '=', 'usuarios.id')
+            ->select('rutas.*', 'usuarios.nombre as conductor', 'usuarios.apellido as lastname', 'usuarios.email as email','usuarios.celular')
+            ->where('viajes.usuario_id', $id_traveler)
+            ->get();
+ 	}
  	
 
 }

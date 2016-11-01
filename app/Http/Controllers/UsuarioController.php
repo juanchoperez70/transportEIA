@@ -18,6 +18,14 @@ class UsuarioController extends Controller {
         return redirect('usuario/listar');
     }
 
+    public function perfil($id) {
+        return view('perfil')->with('rides', $this->usuarioDao->getrides($id));
+    }
+
+    public function buscar() {
+        return view('buscar');
+    }
+
     public function listar() {
         return view('index')->with(array('usuarios' => $this->usuarioDao->obtenerTodos(),
                     'titulo' => "Listado Usuarios"));

@@ -4,7 +4,7 @@
 
 <head>
     <script type="text/javascript">var centreGot = false;</script>{!!$map['js']!!}
-    <link href="<?php echo url('/css/insertar.css') ?>" rel="stylesheet">
+    <link href="<?php echo url('/css/insert.css') ?>" rel="stylesheet">
 </head>
 <body>
     <form class="form-horizontal" role="form" method="POST" action="<?php echo url() ?>/editarRuta">
